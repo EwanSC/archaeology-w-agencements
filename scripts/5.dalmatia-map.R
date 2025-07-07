@@ -42,7 +42,10 @@ dense_sites <- data.frame(findspot_ancient_clean=c("Salona",
                                                    "M. Malvesiatium",
                                                    "Tilurium",
                                                    "M. S[---]",
-                                                   "Aequum"),
+                                                   "Aequum",
+                                                   "Epidaurum",
+                                                   "Scodra",
+                                                   "Domavia"),
                           Longitude=c(16.4743,
                                       17.625,
                                       15.223778,
@@ -54,7 +57,10 @@ dense_sites <- data.frame(findspot_ancient_clean=c("Salona",
                                       19.5333,
                                       16.689,
                                       19.3204,
-                                      16.6547),
+                                      16.6547,
+                                      18.218868,
+                                      19.520268,
+                                      19.36267),
                           Latitude=c(43.5384,
                                      43.0801,
                                      44.115501,
@@ -66,7 +72,10 @@ dense_sites <- data.frame(findspot_ancient_clean=c("Salona",
                                      43.9667,
                                      43.6139,
                                      43.3424,
-                                     43.7423))
+                                     43.7423,
+                                     42.58101,
+                                     42.0672575,
+                                     44.143981))
 
 print(dense_sites)
 
@@ -121,7 +130,7 @@ dataframe_ll <- function(dataframe) {
   ggplot() + 
   geom_sf(data = world, color = "#c9c9c9", fill = "#e4e4e4") + 
   geom_sf(data = roman_roads, colour = "#a1a1a1", size = 0.6) +
-  geom_sf(data = roman_provincess, color = "red", size = 1.5) + 
+  geom_sf(data = roman_provincess, color = "red", size = 3) + 
   geom_sf(data = roman_settlements, colour = "#a1a1a1", alpha= 1, size = 0.8) +
   geom_sf(data = dense_sites_ll, colour = "#000000", size = 2) +
   geom_label_repel(data = dense_sites,
@@ -130,9 +139,12 @@ dataframe_ll <- function(dataframe) {
                        y = Latitude,
                        label = findspot_ancient_clean)) +
   labs(size = "Density",
-       caption = paste("Roads = DARMC (CC BY-NC-SA 4.0). Settlements = Pleiades (CC-BY)."),
+       caption = paste("Roads = DARMC (CC BY-NC-SA 4.0).\n",
+                       "Settlements = Pleiades (CC-BY).\n",
+                       "Provincial boundaries = AWMC (CC-BY-NC 4.0)."),
        title = "Dalmatia",
-       subtitle = "69 CE") +
+       subtitle = "Colonia and epigraphically dense sites") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
   theme_void()
-  
+
+ggsave("output_images/introduction/dalmatia.jpeg")
