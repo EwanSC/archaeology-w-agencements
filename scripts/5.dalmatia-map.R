@@ -11,6 +11,7 @@ library("gridExtra")
 library("rnaturalearthdata")
 library("rnaturalearth")
 library("rnaturalearthhires")
+library("ggspatial")
 
 # download rnaturalearthhires for basemap
 world <- ne_countries(scale = "large", returnclass = "sf")
@@ -87,21 +88,45 @@ print(dense_sites)
 
 
 key_mil_sites <- data.frame(findspot_ancient_clean=c("Tilurium",
-                                                     "Salona",
                                                      "Burnum",
-                                                     "Bigeste"),
+                                                     "Gračine",
+                                                     "Promona",
+                                                     "Andetrium",
+                                                     "Magnum"),
                             Longitude=c(16.7216523938,
-                                        16.483426,
                                         16.025622,
-                                        17.52710),
+                                        17.52710,
+                                        16.199379,
+                                        16.484007,
+                                        16.313369 ),
                             Latitude=c(43.609647549,
-                                       43.539561,
                                        44.018914,
-                                       43.18180))
+                                       43.18180,
+                                       43.896186,
+                                       43.690597,
+                                       43.793599))
 
 print(key_mil_sites)
 
-(key_sites_mil_ll <- st_as_sf(key_mil_sites,
+(key_mil_sites_ll <- st_as_sf(key_mil_sites,
+                              coords = c("Longitude",
+                                         "Latitude"),
+                              remove = FALSE,
+                              crs = 4326, agr = "constant"))
+
+key_civ_sites <- data.frame(findspot_ancient_clean=c("Narona",
+                                                     "Iader",
+                                                     "Salona"),
+                            Longitude=c(17.625,
+                                        15.223778,
+                                        16.483426),
+                            Latitude=c(43.0801,
+                                       44.115501,
+                                       43.539561))
+
+print(key_civ_sites)
+
+(key_sites_civ_ll <- st_as_sf(key_civ_sites,
                               coords = c("Longitude",
                                          "Latitude"),
                               remove = FALSE,
@@ -144,7 +169,47 @@ dataframe_ll <- function(dataframe) {
                        "Provincial boundaries = AWMC (CC-BY-NC 4.0)."),
        title = "Dalmatia",
        subtitle = "Colonia and epigraphically dense sites") +
-  coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
-  theme_void()
+  coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) + 
+    annotation_north_arrow(location = "tl",which_north = "true", 
+                           pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                           style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                           height = unit(1.5, "cm")) +
+    annotation_scale() +
+    theme_void()
 
 ggsave("output_images/introduction/dalmatia.jpeg")
+
+ggplot() + 
+  geom_sf(data = world, color = "#c9c9c9", fill = "#e4e4e4") + 
+  geom_sf(data = roman_roads, colour = "#a1a1a1", size = 0.6) +
+  geom_sf(data = roman_provincess, color = "red", size = 3) + 
+  geom_sf(data = roman_settlements, colour = "#a1a1a1", alpha= 1, size = 0.8) +
+  geom_sf(data = key_mil_sites_ll, colour = "red", size = 2) +
+  geom_sf(data = key_sites_civ_ll, colour = "#000000", size = 2) +
+  geom_label_repel(data = key_mil_sites,
+                   fill = "white",
+                   aes(x = Longitude,
+                       y = Latitude,
+                       label = findspot_ancient_clean), 
+                   nudge_x = c(1,1,1,1,1,1)) +
+  geom_label_repel(data = key_civ_sites,
+                   fill = "white",
+                   aes(x = Longitude,
+                       y = Latitude,
+                       label = findspot_ancient_clean), 
+                   nudge_x = c(-1,-1,-1)) +
+  labs(size = "Density",
+       caption = paste("Roads = DARMC (CC BY-NC-SA 4.0).\n",
+                       "Settlements = Pleiades (CC-BY).\n",
+                       "Provincial boundaries = AWMC (CC-BY-NC 4.0)."),
+       title = "Dalmatia",
+       subtitle = "'Delmataean limes' and important settlements") +
+  coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) + 
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
+  theme_void()
+
+ggsave("output_images/introduction/dalmatia_camps.jpeg")
