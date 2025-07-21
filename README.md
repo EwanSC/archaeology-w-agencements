@@ -1,6 +1,8 @@
 # archaeology-w-agencements
 'Archaeology with _agencemenets_' is a repository for data, scripts, and outputs related to data collection, cleaning, and analysis for the 2021-2025 PhD project 'Roman archaeology with _agencements_: Assemblage thinking and the ‘military community’ in _Dalmatia_ and beyond.'
 
+[![DOI](https://zenodo.org/badge/426825672.svg)](https://doi.org/10.5281/zenodo.16248310)
+
 ## Project description
 Contemporary engagements with Roman army communities are effective for their bottom-up and processual conceptualisations of community and communal participation. However, they are anthropocentric, inward-looking, and struggle with multiscalarity. Drawing upon new materialism, particularly assemblage thinking derived from the work of Deleuze and Guattari, I conceptualise Roman military communities as more-than-human, open, and multiscalar arrangements of people, monuments, objects, signs, and more, in states of ‘becoming-with’. This framework is used to explore the emergence of military communities in first–second century CE Roman Dalmatia, using case studies of inscribed funerary monuments to illuminatie the more-than-human and multiplicious nature of this emergence.
 
