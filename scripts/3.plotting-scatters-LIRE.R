@@ -13,6 +13,8 @@ library("gridExtra")
 library("rnaturalearthdata")
 library("rnaturalearth")
 library("rnaturalearthhires")
+library("ggspatial")
+
 
 # download rnaturalearthhires for basemap
 world <- ne_countries(scale = "large", returnclass = "sf")
@@ -202,6 +204,11 @@ plot1 <-
                        title = "Distribution of military funerary and sacral inscriptions",
                        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot1)
@@ -244,6 +251,11 @@ plot2 <-
                       title = "Distribution of military funerary and sacral inscriptions",
                       subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot2)
@@ -287,6 +299,11 @@ plot3 <-
        title = "Distribution of military inscriptions",
        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot3)
@@ -330,6 +347,11 @@ plot4 <-
        title = "Distribution of military stelae",
        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot4)
@@ -373,6 +395,11 @@ plot5 <-
        title = "Distribution of military epitaphs",
        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot5)
@@ -416,6 +443,11 @@ plot6 <-
        title = "Distribution of military votives",
        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot6)
@@ -459,6 +491,11 @@ plot7 <-
        title = "Distribution of military altars",
        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot7)
@@ -504,6 +541,11 @@ plot8 <-
                        title = "Distribution of military funerary and sacral inscriptions",
                        subtitle = "Dalmatia: Julio-Claudians to Antonines") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot8)
@@ -548,6 +590,11 @@ plot9 <-
        title = "Distribution of military inscriptions",
        subtitle = "Dalmatia: Julio-Claudians to Antonines") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
   
 plot(plot9)
@@ -592,6 +639,11 @@ plot10 <-
                        title = "Distribution of military stelae",
                        subtitle = "Dalmatia: Julio-Claudians to Antonines") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot10)
@@ -636,6 +688,11 @@ plot11 <-
                        title = "Distribution of military epitaphs",
                        subtitle = "Dalmatia: Julio-Claudians to Antonines") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot11)
@@ -678,6 +735,11 @@ plot12 <-
                        title = "Distribution of funerary and sacral inscriptions",
                        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot12)
@@ -720,6 +782,11 @@ plot13 <-
                        title = "Distribution of all inscriptions",
                        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot13)
@@ -762,6 +829,11 @@ plot14 <-
                        title = "Distribution of all stelae",
                        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot14)
@@ -804,6 +876,11 @@ plot15 <-
                        title = "Distribution of all epitaphs",
                        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot15)
@@ -846,6 +923,11 @@ plot16 <-
                        title = "Distribution of all votives",
                        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot16)
@@ -888,6 +970,11 @@ plot17 <-
                        title = "Distribution of all altars",
                        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot17)
@@ -932,6 +1019,11 @@ plot17 <-
                        title = "Distribution of funerary and sacral inscriptions",
                        subtitle = "Dalmatia: Julio-Claudians to Antonines") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot17)
@@ -975,6 +1067,11 @@ plot18 <-
                        title = "Distribution of all inscriptions",
                        subtitle = "Dalmatia: Julio-Claudians to Antonines") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot18)
@@ -1018,6 +1115,11 @@ plot19 <-
                        title = "Distribution of epitaphs",
                        subtitle = "Dalmatia: Julio-Claudians to Antonines") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot19)
@@ -1061,6 +1163,11 @@ plot20 <-
                        title = "Distribution of stelae",
                        subtitle = "Dalmatia: Julio-Claudians to Antonines") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot20)
@@ -1103,6 +1210,11 @@ plot21 <-
                        title = "Distribution of funerary and sacral inscriptions",
                        subtitle = "Dalmatia (Outside Salona)") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot21)
@@ -1141,6 +1253,11 @@ plot22 <-
                        title = "Distribution of all inscriptions",
                        subtitle = "Dalmatia (Outside Salona)") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot22)
@@ -1179,6 +1296,11 @@ plot23 <-
                        title = "Distribution of epitaphs",
                        subtitle = "Dalmatia (Outside Salona)") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot23)
@@ -1217,6 +1339,11 @@ plot23 <-
                        title = "Distribution of stela",
                        subtitle = "Dalmatia (Outside Salona)") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot23)
@@ -1257,6 +1384,11 @@ plot24 <-
                        title = "Distribution of military funerary and sacral inscriptions",
                        subtitle = "Dalmatia (Outside Salona)") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot24)
@@ -1296,6 +1428,11 @@ plot25 <-
                        title = "Distribution of military inscriptions",
                        subtitle = "Dalmatia (Outside Salona)") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot25)
@@ -1335,6 +1472,11 @@ plot26 <-
        title = "Distribution of funerary and sacral inscriptions",
        subtitle = "Dalmatia (Outside Salona): Julio-Claudians to Antonines") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot26)
@@ -1375,6 +1517,11 @@ plot27 <-
                        title = "Distribution of military funerary and sacral inscriptions",
                        subtitle = "Dalmatia (Outside Salona): Julio-Claudians to Antonines") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot27)
@@ -1431,6 +1578,11 @@ plot28 <-
        title = "Distribution of all inscriptions",
        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot28)
@@ -1472,6 +1624,11 @@ plot29 <-
        title = "Distribution of funerary and sacral inscriptions",
        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot29)
@@ -1510,6 +1667,11 @@ plot30 <-
        title = "Distribution of funerary inscriptions",
        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
+  annotation_north_arrow(location = "tl",which_north = "true", 
+                         pad_x = unit(0.2, "cm"), pad_y = unit(0.2, "cm"),
+                         style = north_arrow_nautical,width = unit(1.5, "cm"), 
+                         height = unit(1.5, "cm")) +
+  annotation_scale() +
   theme_void()
 
 plot(plot30)

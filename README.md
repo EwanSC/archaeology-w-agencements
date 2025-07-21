@@ -24,7 +24,7 @@ Contemporary engagements with Roman army communities are effective for their bot
 <br />
 
 ## Thesis
-- Coopey, E S. forthcoming. '"Military-becoming" in Dalmatia and beyond: An assemblage thinking framework for Roman Archaeology.' _PhD thesis_. Macquarie University.
+- Coopey, E S. forthcoming. 'Roman archaeology with _agencements_: Assemblage thinking and the military community in Dalmatia and beyond' _PhD thesis_. Macquarie University.
 
 ## Data Sources
 - LIRE
