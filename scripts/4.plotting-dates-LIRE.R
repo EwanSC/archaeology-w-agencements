@@ -280,30 +280,33 @@ ggsave("output_images/chronological_distribution/10.LIRE_Dalmatia_epitaph_mean_h
 
 # now for weighted density using datplot and 'clean' dfs
 ## Work with https://cran.r-project.org/web/packages/datplot/vignettes/how-to.html
-LIRE_Dal_corpus_scaled <- scaleweight(datsteps(LIRE_Dal_corpus_na,
-                                                     stepsize = 15),
-                                            var = "all")
 
-ggplot(data = LIRE_Dal_corpus_scaled, aes(x = DAT_step, weight = weight)) +
-  geom_density(alpha = 0.8, fill = "#FF8247")+
-  labs(x = "Date (BCE/CE)", y = "Density",
-       caption = paste("n = ",
-                       LIRE_Dal_corpus_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
-                       "Filtered by key words and tags."),
-       title = "Chronological distribution of military funerary and sacral inscriptions",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                           "with stepsize of ",
-                           attributes(LIRE_Dal_corpus_scaled)$stepsize,
-                           sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+  LIRE_Dal_corpus_scaled <- scaleweight(datsteps(LIRE_Dal_corpus_na,
+                                                       stepsize = 15),
+                                              var = "all")
+plot1 <-
+  ggplot(data = LIRE_Dal_corpus_scaled, aes(x = DAT_step, weight = weight)) +
+    geom_density(alpha = 0.8, fill = "#FF8247")+
+    labs(x = "Date (BCE/CE)", y = "Density",
+         caption = paste("n = ",
+                         LIRE_Dal_corpus_count$n,
+                         sep = "",
+                         ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
+                         "Filtered by key words and tags."),
+         title = "Chronological distribution of military funerary and sacral inscriptions",
+         subtitle = paste("Using the weighted output of datsteps() ",
+                             "with stepsize of ",
+                             attributes(LIRE_Dal_corpus_scaled)$stepsize,
+                             sep = "")) +
+    scale_x_continuous(
+      limits = c(-50, 350),
+      breaks = seq(-50, 350, by = 25)) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank()
+    )
+
+plot(plot1)
 
 ggsave("output_images/chronological_distribution/11.LIRE_corpus_plot.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
@@ -312,26 +315,29 @@ LIRE_Dal_corpus_epitaph_scaled <- scaleweight(datsteps(LIRE_Dal_corpus_epitaph_n
                                                          stepsize = 15),
                                                 var = "all")
 
-ggplot(data = LIRE_Dal_corpus_epitaph_scaled, aes(x = DAT_step, weight = weight)) +
-  geom_density(alpha = 0.8, fill = "#FF8247") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       caption = paste("n = ",
-                       LIRE_Dal_corpus_epitaph_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
-                       "Filtered by key words and tags."),
-       title = "Chronological distribution of military epitaphs",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_Dal_corpus_epitaph_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+plot2 <-
+  ggplot(data = LIRE_Dal_corpus_epitaph_scaled, aes(x = DAT_step, weight = weight)) +
+    geom_density(alpha = 0.8, fill = "#FF8247") +
+    labs(x = "Date (BCE/CE)", y = "Density",
+         caption = paste("n = ",
+                         LIRE_Dal_corpus_epitaph_count$n,
+                         sep = "",
+                         ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
+                         "Filtered by key words and tags."),
+         title = "Chronological distribution of military epitaphs",
+         subtitle = paste("Using the weighted output of datsteps() ",
+                          "with stepsize of ",
+                          attributes(LIRE_Dal_corpus_epitaph_scaled)$stepsize,
+                          sep = "")) +
+    scale_x_continuous(
+      limits = c(-50, 350),
+      breaks = seq(-50, 350, by = 25)) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank()
+    )
+
+plot(plot2)
 
 ggsave("output_images/chronological_distribution/12.LIRE_corpus_epitaph_plot.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
@@ -340,26 +346,28 @@ LIRE_Dal_corpus_stela_scaled <- scaleweight(datsteps(LIRE_Dal_corpus_stela_na,
                                                          stepsize = 15),
                                                 var = "all")
 
-ggplot(data = LIRE_Dal_corpus_stela_scaled, aes(x = DAT_step, weight = weight)) +
-  geom_density(alpha = 0.8, fill = "#FF8247") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       caption = paste("n = ",
-                       LIRE_Dal_corpus_stela_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
-                       "Filtered by key words and tags."),
-       title = "Chronological distribution of military stelae",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_Dal_corpus_stela_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+plot3 <-
+  ggplot(data = LIRE_Dal_corpus_stela_scaled, aes(x = DAT_step, weight = weight)) +
+    geom_density(alpha = 0.8, fill = "#FF8247") +
+    labs(x = "Date (BCE/CE)", y = "Density",
+         caption = paste("n = ",
+                         LIRE_Dal_corpus_stela_count$n,
+                         sep = "",
+                         ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
+                         "Filtered by key words and tags."),
+         title = "Chronological distribution of military stelae",
+         subtitle = paste("Using the weighted output of datsteps() ",
+                          "with stepsize of ",
+                          attributes(LIRE_Dal_corpus_stela_scaled)$stepsize,
+                          sep = "")) +
+    scale_x_continuous(
+      limits = c(-50, 350),
+      breaks = seq(-50, 350, by = 25)) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank()
+    )
+plot(plot3)
 
 ggsave("output_images/chronological_distribution/13.LIRE_corpus_stela_plot.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
@@ -368,27 +376,28 @@ LIRE_Dal_corpus_tabula_scaled <- scaleweight(datsteps(LIRE_Dal_corpus_tabula_na,
                                                          stepsize = 15),
                                                 var = "all")
 
-ggplot(data = LIRE_Dal_corpus_tabula_scaled, aes(x = DAT_step, weight = weight)) +
-  geom_density(alpha = 0.8, fill = "#FF8247") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       caption = paste("n = ",
-                       LIRE_Dal_corpus_tabula_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
-                       "Filtered by key words and tags."),
-       title = "Chronological distribution of military tabulae",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_Dal_corpus_tabula_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
-
+plot4 <-
+  ggplot(data = LIRE_Dal_corpus_tabula_scaled, aes(x = DAT_step, weight = weight)) +
+    geom_density(alpha = 0.8, fill = "#FF8247") +
+    labs(x = "Date (BCE/CE)", y = "Density",
+         caption = paste("n = ",
+                         LIRE_Dal_corpus_tabula_count$n,
+                         sep = "",
+                         ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
+                         "Filtered by key words and tags."),
+         title = "Chronological distribution of military tabulae",
+         subtitle = paste("Using the weighted output of datsteps() ",
+                          "with stepsize of ",
+                          attributes(LIRE_Dal_corpus_tabula_scaled)$stepsize,
+                          sep = "")) +
+    scale_x_continuous(
+      limits = c(-50, 350),
+      breaks = seq(-50, 350, by = 25)) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank()
+    )
+plot(plot4)
 
 ggsave("output_images/chronological_distribution/14.LIRE_corpus_tabula_plot.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
@@ -397,25 +406,27 @@ LIRE_Dal_scaled <- scaleweight(datsteps(LIRE_Dal_na,
                                               stepsize = 15),
                                      var = "all")
 
-ggplot(data = LIRE_Dal_scaled, aes(x = DAT_step, weight = weight)) +
-  geom_density(alpha = 0.8, fill = "#3468d6") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       caption = paste("n = ",
-                       LIRE_Dal_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
-       title = "Chronological distribution of funerary and sacral inscriptions",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_Dal_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+plot5 <-
+  ggplot(data = LIRE_Dal_scaled, aes(x = DAT_step, weight = weight)) +
+    geom_density(alpha = 0.8, fill = "#3468d6") +
+    labs(x = "Date (BCE/CE)", y = "Density",
+         caption = paste("n = ",
+                         LIRE_Dal_count$n,
+                         sep = "",
+                         ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
+         title = "Chronological distribution of funerary and sacral inscriptions",
+         subtitle = paste("Using the weighted output of datsteps() ",
+                          "with stepsize of ",
+                          attributes(LIRE_Dal_scaled)$stepsize,
+                          sep = "")) +
+    scale_x_continuous(
+      limits = c(-50, 350),
+      breaks = seq(-50, 350, by = 25)) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank()
+    )
+plot(plot5)
 
 ggsave("output_images/chronological_distribution/15.LIRE_Dalmatia_plot.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
@@ -424,25 +435,27 @@ LIRE_Dalmatia_scaled <- scaleweight(datsteps(LIRE_Dalmatia_na,
                                              stepsize = 15),
                                     var = "all")
 
-ggplot(data = LIRE_Dalmatia_scaled, aes(x = DAT_step, weight = weight)) +
-  geom_density(alpha = 0.8, fill = "#3468d6") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       caption = paste("n = ",
-                       LIRE_Dalmatia_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
-       title = "Chronological distribution of all inscriptions",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_Dalmatia_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+plot6 <-
+  ggplot(data = LIRE_Dalmatia_scaled, aes(x = DAT_step, weight = weight)) +
+    geom_density(alpha = 0.8, fill = "#3468d6") +
+    labs(x = "Date (BCE/CE)", y = "Density",
+         caption = paste("n = ",
+                         LIRE_Dalmatia_count$n,
+                         sep = "",
+                         ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
+         title = "Chronological distribution of all inscriptions",
+         subtitle = paste("Using the weighted output of datsteps() ",
+                          "with stepsize of ",
+                          attributes(LIRE_Dalmatia_scaled)$stepsize,
+                          sep = "")) +
+    scale_x_continuous(
+      limits = c(-50, 350),
+      breaks = seq(-50, 350, by = 25)) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank()
+    )
+plot(plot6)
 
 ggsave("output_images/chronological_distribution/16.LIRE_Dalmatia_all_types_plot.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
@@ -451,25 +464,28 @@ LIRE_Dal_epitaph_scaled <- scaleweight(datsteps(LIRE_Dal_epitaph_na,
                                              stepsize = 15),
                                     var = "all")
 
-ggplot(data = LIRE_Dal_epitaph_scaled, aes(x = DAT_step, weight = weight)) +
-  geom_density(alpha = 0.8, fill = "#3468d6") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       caption = paste("n = ",
-                       LIRE_Dal_epitaph_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
-       title = "Chronological distribution of epitaphs",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_Dal_epitaph_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+plot7 <-
+  ggplot(data = LIRE_Dal_epitaph_scaled, aes(x = DAT_step, weight = weight)) +
+    geom_density(alpha = 0.8, fill = "#3468d6") +
+    labs(x = "Date (BCE/CE)", y = "Density",
+         caption = paste("n = ",
+                         LIRE_Dal_epitaph_count$n,
+                         sep = "",
+                         ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
+         title = "Chronological distribution of epitaphs",
+         subtitle = paste("Using the weighted output of datsteps() ",
+                          "with stepsize of ",
+                          attributes(LIRE_Dal_epitaph_scaled)$stepsize,
+                          sep = "")) +
+    scale_x_continuous(
+      limits = c(-50, 350),
+      breaks = seq(-50, 350, by = 25)) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank()
+    )
+plot(plot7)
+
 
 ggsave("output_images/chronological_distribution/17.LIRE_Dalmatia_epitaph_plot.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
@@ -478,25 +494,27 @@ LIRE_Dal_stela_scaled <- scaleweight(datsteps(LIRE_Dal_stela_na,
                                              stepsize = 15),
                                     var = "all")
 
-ggplot(data = LIRE_Dal_stela_scaled, aes(x = DAT_step, weight = weight)) +
-  geom_density(alpha = 0.8, fill = "#3468d6") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       caption = paste("n = ",
-                       LIRE_Dal_stela_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
-       title = "Chronological distribution of stelae",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_Dal_stela_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+plot8 <-
+  ggplot(data = LIRE_Dal_stela_scaled, aes(x = DAT_step, weight = weight)) +
+    geom_density(alpha = 0.8, fill = "#3468d6") +
+    labs(x = "Date (BCE/CE)", y = "Density",
+         caption = paste("n = ",
+                         LIRE_Dal_stela_count$n,
+                         sep = "",
+                         ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
+         title = "Chronological distribution of stelae",
+         subtitle = paste("Using the weighted output of datsteps() ",
+                          "with stepsize of ",
+                          attributes(LIRE_Dal_stela_scaled)$stepsize,
+                          sep = "")) +
+    scale_x_continuous(
+      limits = c(-50, 350),
+      breaks = seq(-50, 350, by = 25)) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank()
+    )
+plot(plot8)
 
 ggsave("output_images/chronological_distribution/18.LIRE_Dalmatia_stela_plot.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
@@ -506,25 +524,27 @@ LIRE_Dal_tabula_scaled <- scaleweight(datsteps(LIRE_Dal_tabula_na,
                                               stepsize = 15),
                                      var = "all")
 
-ggplot(data = LIRE_Dal_tabula_scaled, aes(x = DAT_step, weight = weight)) +
-  geom_density(alpha = 0.8, fill = "#3468d6") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       caption = paste("n = ",
-                       LIRE_Dal_tabula_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
-       title = "Chronological distribution of all tabulae",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_Dal_tabula_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+plot9 <-
+  ggplot(data = LIRE_Dal_tabula_scaled, aes(x = DAT_step, weight = weight)) +
+    geom_density(alpha = 0.8, fill = "#3468d6") +
+    labs(x = "Date (BCE/CE)", y = "Density",
+         caption = paste("n = ",
+                         LIRE_Dal_tabula_count$n,
+                         sep = "",
+                         ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
+         title = "Chronological distribution of all tabulae",
+         subtitle = paste("Using the weighted output of datsteps() ",
+                          "with stepsize of ",
+                          attributes(LIRE_Dal_tabula_scaled)$stepsize,
+                          sep = "")) +
+    scale_x_continuous(
+      limits = c(-50, 350),
+      breaks = seq(-50, 350, by = 25)) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank()
+    )
+plot(plot9)
 
 ggsave("output_images/chronological_distribution/19.LIRE_Dalmatia_tabula_plot.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
@@ -534,28 +554,31 @@ LIRE_Dal_votive_scaled <- scaleweight(datsteps(LIRE_Dal_votive_na,
                                               stepsize = 15),
                                      var = "all")
 
-ggplot(data = LIRE_Dal_votive_scaled, aes(x = DAT_step, weight = weight)) +
-  geom_density(alpha = 0.8, fill = "#3468d6") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       caption = paste("n = ",
-                       LIRE_Dal_votive_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
-       title = "Chronological distribution of all votive inscriptions",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_Dal_votive_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+plot10 <-
+  ggplot(data = LIRE_Dal_votive_scaled, aes(x = DAT_step, weight = weight)) +
+    geom_density(alpha = 0.8, fill = "#3468d6") +
+    labs(x = "Date (BCE/CE)", y = "Density",
+         caption = paste("n = ",
+                         LIRE_Dal_votive_count$n,
+                         sep = "",
+                         ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
+         title = "Chronological distribution of all votive inscriptions",
+         subtitle = paste("Using the weighted output of datsteps() ",
+                          "with stepsize of ",
+                          attributes(LIRE_Dal_votive_scaled)$stepsize,
+                          sep = "")) +
+    scale_x_continuous(
+      limits = c(-50, 350),
+      breaks = seq(-50, 350, by = 25)) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank()
+    )
+plot(plot10)
 
 ggsave("output_images/chronological_distribution/20.LIRE_Dalmatia_votive_plot.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
+
 # now for with a histogram
 ##get histogram 
 LIRE_Dal_corpus_scaled_histogramscale <- get.histogramscale(LIRE_Dal_corpus_scaled)
@@ -644,145 +667,25 @@ ggsave("output_images/chronological_distribution/23.LIRE_Dalmatia_all_types_hist
        width = 180, height = 100, unit = "mm", dpi = 600)
 
 #now to compare
-LIRE_both <- rbind(LIRE_Dal_na, LIRE_Dal_corpus_na)
-
-LIRE_both_scaled <- scaleweight(datsteps(LIRE_both, stepsize = 15),
-                                var = "all")
-
-ggplot(data = LIRE_both_scaled, aes(x = DAT_step, weight = weight,
-                                          group=variable, fill=variable)) +
-  geom_density(alpha = 0.6) +
-  scale_fill_manual(values = c("Military" = "#FF8247", "All" = "#3468d6"),
-                    name = "Category") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       variable = "Category",
-       caption = paste("Military n = ",
-                       LIRE_Dal_corpus_count$n,
-                       ". All n = ",
-                       LIRE_Dal_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
-                       "Filtered by key words and tags."),
-       title = "Chronological distribution of funerary and sacral inscriptions (Density)",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_both_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+corpus_dalmatia_both <- grid.arrange(plot1, plot5, ncol = 1, nrow = 2)
 
 ggsave("output_images/chronological_distribution/24.LIRE_Dalmatia_comparison_plot.jpeg",
-       width = 180, height = 100, unit = "mm", dpi = 600)
+       corpus_dalmatia_both, width = 180, height = 200, unit = "mm", dpi = 600)
 
-LIRE_both_epitaph <- rbind(LIRE_Dal_epitaph_na, LIRE_Dal_corpus_epitaph_na)
-
-LIRE_both_epitaph_scaled <- scaleweight(datsteps(LIRE_both_epitaph, stepsize = 15),
-                                          var = "all")
-
-ggplot(data = LIRE_both_epitaph_scaled, aes(x = DAT_step, weight = weight,
-                                          group=variable, fill=variable)) +
-  geom_density(alpha = 0.6) +
-  scale_fill_manual(values = c("Military" = "#FF8247", "All" = "#3468d6"),
-                    name = "Category") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       variable = "Category",
-       caption = paste("Military n = ",
-                       LIRE_Dal_corpus_epitaph_count$n,
-                       ". All n = ",
-                       LIRE_Dal_epitaph_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
-                       "Filtered by key words and tags."),
-       title = "Chronological distribution of epitaphs (Density)",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_both_epitaph_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+corpus_dalmatia_epitaphs <- grid.arrange(plot2, plot7, ncol = 1, nrow = 2)
 
 ggsave("output_images/chronological_distribution/25.LIRE_Dalmatia_epitaph_comparison_plot.jpeg",
-       width = 180, height = 100, unit = "mm", dpi = 600)
+       corpus_dalmatia_epitaphs, width = 180, height = 200, unit = "mm", dpi = 600)
 
-LIRE_both_stela <- rbind(LIRE_Dal_stela_na, LIRE_Dal_corpus_stela_na)
-
-LIRE_both_stela_scaled <- scaleweight(datsteps(LIRE_both_stela, stepsize = 15),
-                                          var = "all")
-
-ggplot(data = LIRE_both_stela_scaled, aes(x = DAT_step, weight = weight,
-                                          group=variable, fill=variable)) +
-  geom_density(alpha = 0.6) +
-  scale_fill_manual(values = c("Military" = "#FF8247", "All" = "#3468d6"),
-                    name = "Category") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       variable = "Category",
-       caption = paste("Military n = ",
-                       LIRE_Dal_corpus_stela_count$n,
-                       ". All n = ",
-                       LIRE_Dal_stela_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
-                       "Filtered by key words and tags."),
-       title = "Chronological distribution of stelae (Density)",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_both_stela_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+corpus_dalmatia_stelae <- grid.arrange(plot3, plot8, ncol = 1, nrow = 2)
 
 ggsave("output_images/chronological_distribution/26.LIRE_Dalmatia_stela_comparison_plot.jpeg",
-       width = 180, height = 100, unit = "mm", dpi = 600)
+       corpus_dalmatia_stelae, width = 180, height = 200, unit = "mm", dpi = 600)
 
-LIRE_both_tabula <- rbind(LIRE_Dal_tabula_na, LIRE_Dal_corpus_tabula_na)
-
-LIRE_both_tabula_scaled <- scaleweight(datsteps(LIRE_both_tabula, stepsize = 15),
-                                          var = "all")
-
-ggplot(data = LIRE_both_tabula_scaled, aes(x = DAT_step, weight = weight,
-                                          group=variable, fill=variable)) +
-  geom_density(alpha = 0.6) +
-  scale_fill_manual(values = c("Military" = "#FF8247", "All" = "#3468d6"),
-                    name = "Category") +
-  labs(x = "Date (BCE/CE)", y = "Density",
-       variable = "Category",
-       caption = paste("Military n = ",
-                       LIRE_Dal_corpus_tabula_count$n,
-                       ". All n = ",
-                       LIRE_Dal_tabula_count$n,
-                       sep = "",
-                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
-                       "Filtered by key words and tags."),
-       title = "Chronological distribution of tabulae (Density)",
-       subtitle = paste("Using the weighted output of datsteps() ",
-                        "with stepsize of ",
-                        attributes(LIRE_both_tabula_scaled)$stepsize,
-                        sep = "")) +
-  scale_x_continuous(
-    limits = c(-50, 350),
-    breaks = seq(-50, 350, by = 25)) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  )
+corpus_dalmatia_tabulae <- grid.arrange(plot4, plot9, ncol = 1, nrow = 2)
 
 ggsave("output_images/chronological_distribution/27.LIRE_Dalmatia_tabula_comparison_plot.jpeg",
-       width = 180, height = 100, unit = "mm", dpi = 600)
+       corpus_dalmatia_tabulae, width = 180, height = 200, unit = "mm", dpi = 600)
 
 ## now for differences based on type
 LIRE_Dalmatia_types <-
@@ -812,7 +715,7 @@ LIRE_Dalmatia_epitaphs_count <- count(LIRE_Dalmatia_epitaphs_na)
 LIRE_Dalmatia_epitaphs_scaled <- scaleweight(datsteps(LIRE_Dalmatia_epitaphs_na,
                                                 stepsize = 15),
                                        var = "all")
-plot1 <-
+plot11 <-
   ggplot(data = LIRE_Dalmatia_votives_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -834,9 +737,9 @@ plot1 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot1)
+plot(plot11)
 
-plot2 <-
+plot12 <-
   ggplot(data = LIRE_Dalmatia_epitaphs_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -858,9 +761,9 @@ plot2 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot2)
+plot(plot12)
 
-epitaphs_votives <- grid.arrange(plot1, plot2, ncol = 1, nrow = 2)
+epitaphs_votives <- grid.arrange(plot11, plot12, ncol = 1, nrow = 2)
 
 ggsave("output_images/chronological_distribution/28.LIRE_Dalmatia_types_altar_epitaph.jpeg",
        epitaphs_votives, width = 211, height = 240, unit = "mm", dpi = 600)
@@ -894,7 +797,7 @@ LIRE_corpus_epitaphs_scaled <- scaleweight(datsteps(LIRE_corpus_epitaphs_na,
                                                 stepsize = 15),
                                        var = "all")
 
-plot3 <-
+plot13 <-
   ggplot(data = LIRE_corpus_votives_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -916,9 +819,9 @@ plot3 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot3)
+plot(plot13)
 
-plot4 <-
+plot14 <-
   ggplot(data = LIRE_corpus_epitaphs_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -940,9 +843,9 @@ plot4 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot4)
+plot(plot14)
 
-corpus_epitaphs_votives <- grid.arrange(plot3, plot4, ncol = 1, nrow = 2)
+corpus_epitaphs_votives <- grid.arrange(plot13, plot14, ncol = 1, nrow = 2)
 
 ggsave("output_images/chronological_distribution/29.LIRE_corpus_types_altar_epitaph.jpeg",
        corpus_epitaphs_votives, width = 211, height = 240, unit = "mm", dpi = 600)
@@ -998,7 +901,7 @@ LIRE_Dalmatia_tabulae_scaled <- scaleweight(datsteps(LIRE_Dalmatia_tabulae_na,
                                                                 stepsize = 15),
                                                        var = "all")
 
-plot5 <-                                                       
+plot15 <-                                                       
   ggplot(data = LIRE_Dalmatia_altar_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -1020,9 +923,9 @@ plot5 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot5)
+plot(plot15)
 
-plot6 <-                                                       
+plot16 <-                                                       
   ggplot(data = LIRE_Dalmatia_stelae_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -1044,9 +947,9 @@ plot6 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot6)
+plot(plot16)
 
-plot7 <-                                                       
+plot17 <-                                                       
   ggplot(data = LIRE_Dalmatia_sarcophagi_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -1068,9 +971,9 @@ plot7 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot7)
+plot(plot17)
 
-plot8 <-                                                       
+plot18 <-                                                       
   ggplot(data = LIRE_Dalmatia_tabulae_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -1092,9 +995,9 @@ plot8 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot8)
+plot(plot18)
 
-monuments <- grid.arrange(plot5, plot6, plot7, plot8, ncol = 2, nrow = 2)
+monuments <- grid.arrange(plot15, plot16, plot17, plot18, ncol = 2, nrow = 2)
 
 ggsave("output_images/chronological_distribution/30.LIRE_Dalmatia_types_altar_stela_sarcophagus_tabula.jpeg",
        monuments, width = 420, height = 240, unit = "mm", dpi = 600)
@@ -1141,7 +1044,7 @@ LIRE_corpus_tabulae_scaled <- scaleweight(datsteps(LIRE_corpus_tabulae_na,
                                                                 stepsize = 15),
                                                        var = "all")
 
-plot9 <-
+plot19 <-
   ggplot(data = LIRE_corpus_altar_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -1163,9 +1066,9 @@ plot9 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot9)
+plot(plot19)
 
-plot10 <-
+plot20 <-
   ggplot(data = LIRE_corpus_stelae_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -1187,9 +1090,9 @@ plot10 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot10)
+plot(plot20)
 
-plot11 <-
+plot21 <-
   ggplot(data = LIRE_corpus_tabulae_scaled,
          aes(x = DAT_step, fill = variable, weight = weight)) +
     geom_density(alpha = 0.3) +
@@ -1211,9 +1114,9 @@ plot11 <-
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank())
-plot(plot11)
+plot(plot21)
 
-corpus_monuments <- grid.arrange(plot9, plot10, plot11, ncol = 2, nrow = 2)
+corpus_monuments <- grid.arrange(plot19, plot20, plot21, ncol = 2, nrow = 2)
 
 ggsave("output_images/chronological_distribution/31.LIRE_corpus_types_altar_stela_tabula.jpeg",
        corpus_monuments, width = 420, height = 240, unit = "mm", dpi = 600)
