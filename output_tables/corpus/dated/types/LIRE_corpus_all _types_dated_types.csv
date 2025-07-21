@@ -1,7 +1,7 @@
 "","type_of_monument_clean","type_of_inscription_auto","n"
 "1","NULL","boundary inscription",2
 "2","NULL","building/dedicatory inscription",4
-"3","NULL","epitaph",138
+"3","NULL","epitaph",137
 "4","NULL","honorific inscription",9
 "5","NULL","votive inscription",7
 "6","NULL",NA,10
@@ -24,7 +24,7 @@
 "23","statue base","epitaph",1
 "24","statue base","honorific inscription",10
 "25","statue base","votive inscription",2
-"26","stele","epitaph",125
+"26","stele","epitaph",124
 "27","stele",NA,1
 "28","table","identification inscription",1
 "29","tabula","boundary inscription",3
@@ -35,7 +35,7 @@
 "34","tabula","votive inscription",4
 "35","tile","owner/artist inscription",8
 "36","urn","epitaph",3
-"37",NA,"epitaph",10
+"37",NA,"epitaph",9
 "38",NA,"honorific inscription",1
 "39",NA,"military diploma",2
 "40",NA,"votive inscription",2

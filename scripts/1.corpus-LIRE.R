@@ -277,7 +277,10 @@ load_military_terms <- load_military_terms %>%
                     "475320",
                     "475377",
                     "475378",
-                    "500263"))
+                    "500263",
+                    "106845",
+                    "468356",
+                    "474444"))
 return(load_military_terms)
 }
 
@@ -400,7 +403,10 @@ load_military_terms_and_sites <- load_military_terms_and_sites %>%
                     "475320",
                     "475377",
                     "475378",
-                    "500263"))
+                    "500263",
+                    "106845",
+                    "468356",
+                    "474444"))
 return(load_military_terms_and_sites)
 }
 

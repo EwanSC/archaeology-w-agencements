@@ -1,5 +1,5 @@
 "","type_of_monument_clean","n"
-"1","NULL",170
+"1","NULL",169
 "2","altar",40
 "3","architectural member",3
 "4","base",2
@@ -11,9 +11,9 @@
 "10","relief",1
 "11","sarcophagus",2
 "12","statue base",13
-"13","stele",126
+"13","stele",125
 "14","table",1
 "15","tabula",47
 "16","tile",8
 "17","urn",3
-"18",NA,15
+"18",NA,14
