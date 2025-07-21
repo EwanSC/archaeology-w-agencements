@@ -391,7 +391,8 @@ plot5 <-
                        sep = "",
                        ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0).\n",
                        "Roads = DARMC (CC BY-NC-SA 4.0). Settlements = Pleiades (CC-BY).\n",
-                       "Filtered by key words and tags."),
+                       "Filtered by key words and tags.\n",
+                       "No date filter."),
        title = "Distribution of military epitaphs",
        subtitle = "Dalmatia") +
   coord_sf(default_crs = st_crs(4326), xlim = c(14, 21), ylim = c(41.5, 46)) +
