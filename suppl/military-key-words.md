@@ -351,24 +351,28 @@ vexillari
 victimari
 
 # shortened list with no impact on # of hits
-- legio, legionis
-- cohors, cohortis
-- ala, -ae
-- miles, -militis
-- eques, equitis
-- duplicarius, -ii
-- veteranus, -i
-- centurio, centurionis
-- immunis, -e
-- beneficiarius, -ii
-- tesserarius, -ii
-- signifer, -i
-- aquilifer, -i
-- imaginifer, -i
-- corniculārius, -ii
-- principalis, -e
-- primus pilus, -is -i
-- praefectus castrorum, -i -i
-- optio, optionis
-- centuria -ae
-
+- ala aquilifer 
+- beneficiar
+- centuri
+- cohor
+- cornicular
+- duplicari
+- eques
+- equit
+- imaginifer
+- immun
+- legio
+- miles
+- milit
+- milites
+- optio
+- optionis
+- praefectus castrorum
+- primi pili
+- primo pilo
+- primus pilus
+- principalis
+- signifer
+- stipendi
+- tesserari
+- veteran
