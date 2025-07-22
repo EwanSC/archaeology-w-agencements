@@ -218,6 +218,8 @@ load_military_terms <- function(dataframe) {
                     LIKE '%optio %'
                   or clean_text_interpretive_word
                     LIKE '%option%'
+                  or clean_text_interpretive_word
+                    LIKE '%stipendi%'
                   or status_notation
                     LIKE '%milites%'
                     ")
@@ -339,6 +341,8 @@ load_military_terms_and_sites <- function(dataframe) {
                     LIKE '%optio %'
                   or clean_text_interpretive_word
                     LIKE '%option%'
+                  or clean_text_interpretive_word
+                    LIKE '%stipendi%'
                   or status_notation
                     LIKE '%milites%'
                   OR findspot_ancient_clean = 'Tilurium'
