@@ -1121,7 +1121,7 @@ corpus_monuments <- grid.arrange(plot19, plot20, plot21, ncol = 2, nrow = 2)
 ggsave("output_images/chronological_distribution/31.LIRE_corpus_types_altar_stela_tabula.jpeg",
        corpus_monuments, width = 420, height = 240, unit = "mm", dpi = 600)
 
-# beta: trying to make cumulative graph
+# cumulative graphs
 LIRE_Dal_epitaph_cumulative <- LIRE_Dal_epitaph %>%
   arrange(DAT_mean) %>%
   mutate(cumulative_count = row_number())
@@ -1160,4 +1160,22 @@ ggplot(LIRE_Dal_epitaph_cumulative, aes(x = DAT_mean, y = cumulative_count)) +
     breaks = seq(-50, 350, by = 25))
 
 ggsave("output_images/chronological_distribution/33.LIRE_epitaph_cumulative_plot.jpeg",
+       width = 180, height = 100, unit = "mm", dpi = 600)
+
+## just 30 bce to 150 ce
+
+ggplot(LIRE_Dal_epitaph_corpus_cumulative, aes(x = DAT_mean, y = cumulative_count)) +
+  geom_line(color = "#FF8247", linewidth = 1) +
+  labs(x = "Date (BCE/CE)", y = "Cumulative count",
+       caption = paste("n = ",
+                       LIRE_Dal_corpus_epitaph_count$n,
+                       sep = "",
+                       ".\nEpigraphic data = LIRE v.3.0 (CC BY 4.0)."),
+       title = "Cumulative count of military epitaphs in period of study",
+       subtitle = paste("Dalmatia: using mean")) +
+  scale_x_continuous(
+    limits = c(-50, 150),
+    breaks = seq(-50, 150, by = 25))
+
+ggsave("output_images/chronological_distribution/34.LIRE_corpus_epitaph_cumulative_plot_early.jpeg",
        width = 180, height = 100, unit = "mm", dpi = 600)
